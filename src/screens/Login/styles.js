@@ -9,15 +9,15 @@ import {
 
 export default StyleSheet.create({
   mainView: {
-    backgroundColor: colors.background,
+    backgroundColor:'white',
     flex: 1,
   },
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 22,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // margin: 10,
   },
   googleButton: {
     height: 45,
@@ -38,8 +38,8 @@ export default StyleSheet.create({
   },
 
   textInput: {
-    width: '100%',
-    paddingLeft: 12,
+    width: '80%',
+    // paddingLeft: 12,
   },
   dontAccountView: {
     // padding: 12,
@@ -54,14 +54,16 @@ export default StyleSheet.create({
     fontFamily: fontFamily,
   },
   inputMainView: {
-    height: 48,
-    width: '100%',
-    marginTop: 6,
-    backgroundColor: colors.white,
+    // height: 48,
+    // width: '100%',
+    // marginTop: 6,
+    backgroundColor: 'white',
     borderRadius: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: 12,
+    padding: 10,
+    borderBottomColor:'gray',
+    borderBottomWidth:0.5
   },
   iconView: {
     height: 22,
@@ -104,5 +106,7 @@ export default StyleSheet.create({
   flexRow: {
     flexDirection: 'row',
     marginTop: 12,
+    justifyContent:'center',
+    alignItems:'center'
   },
 });

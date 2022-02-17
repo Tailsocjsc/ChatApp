@@ -24,6 +24,8 @@ import { updateUserToken } from '../../utils/firebase';
 import firestore from '@react-native-firebase/firestore';
 import { images } from '../../utils/images';
 import LinearGradient from 'react-native-linear-gradient';
+import { FAB, Portal, Provider } from 'react-native-paper';
+import AcitonButton from '../../Custom/ActionButton';
 
 const LoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -33,6 +35,8 @@ const LoginScreen = ({ navigation }) => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isFocus1, setIsFocus1] = useState(false);
+  const [isFocus2, setIsFocus2] = useState(false);
 
   const getUserInfo = (id, token) => {
     firestore()
@@ -66,53 +70,77 @@ const LoginScreen = ({ navigation }) => {
 
           let tokenDetails = await AsyncStorage.getItem('FCMToken');
           const token = JSON.parse(tokenDetails)?.token;
-          console.log('get token==', token);
+          // console.log('get token==', token);
           getUserInfo(userInfo?.user?.uid, token);
           updateUserToken(token, userInfo);
-          showFlashMessage('Login Successfully', 'success');
+          showFlashMessage('Đăng nhập thành công');
         })
         .catch((e) => {
           setLoading(false);
-          showFlashMessage(e.message);
+          showFlashMessage('Tài khoản không có hoặc sai thông tin . Vui lòng đăng nhập lại');
         });
     }
   };
   return (
     <View style={styles.mainView}>
       <View style={styles.container}>
-        <Text style={styles.welcomeText}>Welcome Back!</Text>
-        <Text style={styles.welcomeDetailText}>Login in to your account</Text>
-        <View style={{ height: 22 }} />
         <View>
-          <Text style={styles.inputLable}>Email Address</Text>
-          <View style={styles.inputMainView}>
-            <Image style={styles.iconView} source={images.user} />
+          <Text
+            style={{ backgroundColor: '#E7E7E7', padding: 10, color: 'black' }}
+          >
+            Vui lòng nhập email để đăng nhập và mật khẩu để đăng nhập
+          </Text>
+          <View
+            style={[
+              styles.inputMainView,
+              isFocus1 && {
+                borderBottomColor: '#5DB1E7',
+                borderBottomWidth: 2,
+              },
+            ]}
+          >
+            {/* <Image style={styles.iconView} source={images.user} /> */}
             <TextInput
               value={loginForm.email}
-              placeholder={'Example@gmail.com'}
+              placeholder={'Email (Example@gmail.com)'}
               onChangeText={(text) =>
                 setLoginForm({ ...loginForm, email: text })
               }
               placeholderTextColor={colors.placeholder}
               multiline={true}
-              style={styles.textInput}
+              style={[styles.textInput]}
+              onFocus={() => {
+                setIsFocus1(true);
+                setIsFocus2(false);
+              }}
             />
           </View>
         </View>
         <View style={{ height: 12 }} />
         <View>
-          <Text style={styles.inputLable}>Password</Text>
-          <View style={styles.inputMainView}>
-            <Image style={styles.iconView} source={images.password} />
+          <View
+            style={[
+              styles.inputMainView,
+              isFocus2 && {
+                borderBottomColor: '#5DB1E7',
+                borderBottomWidth: 2,
+              },
+            ]}
+          >
+            {/* <Image style={styles.iconView} source={images.password} /> */}
             <TextInput
               value={loginForm.password}
-              placeholder={'Enter Password'}
+              placeholder={'Mật khẩu'}
               secureTextEntry={!showPassword}
               onChangeText={(text) =>
                 setLoginForm({ ...loginForm, password: text })
               }
               placeholderTextColor={colors.placeholder}
               style={styles.textInput}
+              onFocus={() => {
+                setIsFocus1(false);
+                setIsFocus2(true);
+              }}
             />
             <TouchableOpacity
               onPress={() => setShowPassword(!showPassword)}
@@ -125,7 +153,10 @@ const LoginScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity
+        {/* <View style={{jus}}
+
+        </View> */}
+        {/* <TouchableOpacity
           activeOpacity={0.8}
           onPress={() => onLogin()}
           style={{ width: 134, marginTop: 38 }}
@@ -146,7 +177,7 @@ const LoginScreen = ({ navigation }) => {
               />
             )}
           </LinearGradient>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <View style={styles.flexRow}>
           <Text style={styles.dontAccountFirst}>Don't have an account?</Text>
           <TouchableOpacity
@@ -157,6 +188,7 @@ const LoginScreen = ({ navigation }) => {
             <Text style={styles.dontAccountText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
+        <AcitonButton  OnLogin={() => onLogin()}/>
       </View>
     </View>
   );

@@ -43,13 +43,13 @@ export const validateEmail = (val) => {
 
 export const validateLoginForm = (form) => {
   if (form.email === '') {
-    showFlashMessage('Enter email');
+    showFlashMessage('Vui lòng nhập Email');
     return false;
   } else if (!validateEmail(form.email)) {
-    showFlashMessage('Enter valid email');
+    showFlashMessage('Vui lòng nhập đúng định dạng Email');
     return false;
   } else if (form.password === '') {
-    showFlashMessage('Enter valid password');
+    showFlashMessage('Vui lòng nhập mật khẩu');
     return false;
   } else {
     return true;
@@ -57,20 +57,20 @@ export const validateLoginForm = (form) => {
 };
 
 export const validateRegisterForm = (form) => {
-  if (form.email === '') {
-    showFlashMessage('Enter email');
-    return false;
-  } else if (!validateEmail(form.email)) {
-    showFlashMessage('Enter valid email');
-    return false;
-  } else if (form.password === '') {
-    showFlashMessage('Enter valid password');
-    return false;
-  } else if (form.first_name === '') {
-    showFlashMessage('Enter first name');
+  if (form.first_name === '') {
+    showFlashMessage('Vui lòng nhập Họ ');
     return false;
   } else if (form.last_name === '') {
-    showFlashMessage('Enter last name');
+    showFlashMessage('Vui lòng nhập Tên');
+    return false;
+  } else if (form.email === '') {
+    showFlashMessage('Vui lòng nhập Email');
+    return false;
+  } else if (!validateEmail(form.email)) {
+    showFlashMessage('Vui lòng nhập đúng định dạng Email');
+    return false;
+  } else if (form.password === '') {
+    showFlashMessage('Vui lòng nhập mật khẩu');
     return false;
   } else {
     return true;

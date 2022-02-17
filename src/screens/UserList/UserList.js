@@ -23,7 +23,7 @@ const UserListScreen = ({ navigation }) => {
 
   const initData = async () => {
     const list = await getUserList();
-    console.log('get list here==', list);
+    // console.log('get list here==', list);
     setMainUserList([...list]);
     setUserList([...list]);
   };
@@ -63,6 +63,7 @@ const UserListScreen = ({ navigation }) => {
         {userList.map((item) => {
           return userInfo?._id !== item?._id ? (
             <UserItemView
+              key={item?._id}
               onPress={() => navigation.navigate('Chat', { userInfo: item })}
               name={item.name}
               profileImage={item?.profile_url ? item?.profile_url : DUMMY_AVTAR}

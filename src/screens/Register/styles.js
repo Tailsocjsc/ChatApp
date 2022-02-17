@@ -9,16 +9,16 @@ import {
 
 export default StyleSheet.create({
   mainView: {
-    backgroundColor: colors.background,
+    backgroundColor: 'white',
     flex: 1,
   },
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '90%',
-    alignSelf: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    width: '100%',
+    // alignSelf: 'center',
   },
   welcomeText: {
     fontSize: 30,
@@ -52,10 +52,11 @@ export default StyleSheet.create({
   profileImgae: {
     height: 62,
     width: 62,
-    backgroundColor: colors.gray,
+    // backgroundColor: colors.gray,
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   uploadText: {
     fontSize: 18,
@@ -93,6 +94,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 12,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
   },
   iconView: {
     height: 22,

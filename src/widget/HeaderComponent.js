@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   ActivityIndicator,
+  TextInput,
 } from 'react-native';
 import colors from '../utils/theme/colors';
 import {
@@ -24,6 +25,7 @@ import { images } from '../utils/images';
 import { useNavigation } from '@react-navigation/core';
 import { useSelector } from 'react-redux';
 import AppMenu from '../components/AppMenu';
+import Images from '../Image/Index';
 
 const HeaderComponent = ({}) => {
   const navigation = useNavigation();
@@ -33,12 +35,27 @@ const HeaderComponent = ({}) => {
   return (
     <View style={styles.mainView}>
       <View style={styles.subRow}>
-        <RoundAvatar size={42} image_url={userInfo?.profile_url} />
-        <View style={{ width: 18 }} />
+        {/* <RoundAvatar size={42} image_url={userInfo?.profile_url} /> */}
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate('UserListScreen')}
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            padding: 12,
+            height: 54,
+          }}
+        >
+          <Image source={Images.ic_search} style={{ height: 20, width: 20 }} />
+          <Text style={{ color: 'white', marginLeft: 10 }}>
+            Tìm kiếm bạn bè
+          </Text>
+        </TouchableOpacity>
 
-        <Text style={styles.nameText}>{userInfo?.name}</Text>
+        {/* <Text style={styles.nameText}>{userInfo?.name}</Text> */}
       </View>
-      <View style={styles.subRow}>
+      {/* <View style={styles.subRow}>
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={() => navigation.navigate('UserListScreen')}
@@ -60,7 +77,7 @@ const HeaderComponent = ({}) => {
             }
           ></AppMenu>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -70,14 +87,14 @@ export default HeaderComponent;
 const styles = StyleSheet.create({
   mainView: {
     flexDirection: 'row',
-    padding: 18,
+    // padding: 18,
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.primary,
   },
   subRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    // flexDirection: 'row',
+    // alignItems: 'center',
   },
   backIcon: {
     height: 22,

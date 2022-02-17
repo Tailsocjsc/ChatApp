@@ -23,6 +23,7 @@ import storage from '@react-native-firebase/storage';
 import { images } from '../../utils/images';
 import LinearGradient from 'react-native-linear-gradient';
 import AcitonButton from '../../Custom/ActionButton';
+import Images from '../../Image/Index';
 
 const RegisterScreen = ({ navigation }) => {
   const [loginForm, setLoginForm] = useState({
@@ -91,6 +92,34 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <View style={styles.mainView}>
+      <View
+        style={{
+          height: 40,
+          backgroundColor: '#73CFFF',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexDirection: 'row',
+          paddingLeft: 10,
+        }}
+      >
+        <TouchableOpacity style={{}} onPress={() => navigation.goBack()}>
+          <Image
+            source={images.back}
+            style={{ height: 20, width: 20, tintColor: 'white' }}
+          />
+        </TouchableOpacity>
+
+        <Text
+          style={{
+            paddingLeft: 10,
+            color: 'white',
+            fontSize: 18,
+            fontWeight: '700',
+          }}
+        >
+          Tạo tài khoản
+        </Text>
+      </View>
       <View style={styles.container}>
         <View style={{}}>
           <Text
@@ -153,13 +182,15 @@ const RegisterScreen = ({ navigation }) => {
           </View>
           <View style={{ width: 12 }} />
           <View style={{ flex: 1 }}>
-            <View style={[
+            <View
+              style={[
                 styles.inputMainView,
                 isFocus2 && {
                   borderBottomColor: '#5DB1E7',
                   borderBottomWidth: 2,
                 },
-              ]}>
+              ]}
+            >
               <TextInput
                 value={loginForm.last_name}
                 placeholder={'Tên '}
@@ -182,13 +213,15 @@ const RegisterScreen = ({ navigation }) => {
         </View>
         <View style={{ height: 12 }} />
         <View>
-          <View style={[
-                styles.inputMainView,
-                isFocus3 && {
-                  borderBottomColor: '#5DB1E7',
-                  borderBottomWidth: 2,
-                },
-              ]}>
+          <View
+            style={[
+              styles.inputMainView,
+              isFocus3 && {
+                borderBottomColor: '#5DB1E7',
+                borderBottomWidth: 2,
+              },
+            ]}
+          >
             <TextInput
               value={loginForm.email}
               placeholder={'Email (Example@gmail.com)'}
@@ -210,13 +243,15 @@ const RegisterScreen = ({ navigation }) => {
         </View>
         <View style={{ height: 12 }} />
         <View>
-          <View style={[
-                styles.inputMainView,
-                isFocus4 && {
-                  borderBottomColor: '#5DB1E7',
-                  borderBottomWidth: 2,
-                },
-              ]}>
+          <View
+            style={[
+              styles.inputMainView,
+              isFocus4 && {
+                borderBottomColor: '#5DB1E7',
+                borderBottomWidth: 2,
+              },
+            ]}
+          >
             <TextInput
               value={loginForm.password}
               placeholder={'Mật khẩu'}

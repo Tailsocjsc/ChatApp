@@ -151,7 +151,7 @@ const SplashScreen = ({ navigation }) => {
         dispatch(setUserData(user));
         navigation.reset({
           index: 0,
-          routes: [{ name: 'HomeScreen' }],
+          routes: [{ name: 'MyTabs' }],
         });
       } else {
         navigation.reset({

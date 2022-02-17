@@ -55,7 +55,7 @@ const LoginScreen = ({ navigation }) => {
         );
         navigation.reset({
           index: 0,
-          routes: [{ name: 'HomeScreen' }],
+          routes: [{ name: 'MyTabs' }],
         });
       });
   };
@@ -179,13 +179,13 @@ const LoginScreen = ({ navigation }) => {
           </LinearGradient>
         </TouchableOpacity> */}
         <View style={styles.flexRow}>
-          <Text style={styles.dontAccountFirst}>Don't have an account?</Text>
+          <Text style={styles.dontAccountFirst}>Bạn chưa có tài khoản?</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('RegisterScreen')}
             activeOpacity={0.8}
             style={styles.dontAccountView}
           >
-            <Text style={styles.dontAccountText}>Sign Up</Text>
+            <Text style={styles.dontAccountText}>Đăng kí</Text>
           </TouchableOpacity>
         </View>
         <AcitonButton  OnLogin={() => onLogin()}/>

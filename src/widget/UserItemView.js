@@ -28,9 +28,9 @@ const UserItemView = ({
       onPress={() => onPress && onPress()}
       style={styles.mainView}
     >
-      <RoundAvatar size={54} image_url={profileImage} />
+      <RoundAvatar size={40} image_url={profileImage} />
       <View style={styles.mainRow}>
-        <View style={{ marginLeft: 12 }}>
+        <View style={{ marginLeft: 5 }}>
           <Text
             numberOfLines={1}
             style={[
@@ -77,16 +77,23 @@ export default UserItemView;
 
 const styles = StyleSheet.create({
   mainView: {
-    height: 60,
+    // height: 60,
     flexDirection: 'row',
-    marginTop: 12,
+    // marginTop: 12,
+    paddingVertical:10,
+    justifyContent:"flex-start",
+    alignItems:'center'
   },
   mainRow: {
     flexDirection: 'row',
     flex: 1,
-    height: 54,
+    // height: 60,
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderBottomColor:"gray",
+    borderBottomWidth:0.5,
+    marginHorizontal:10,
+    paddingVertical:10
   },
   unreadView: {
     height: 22,

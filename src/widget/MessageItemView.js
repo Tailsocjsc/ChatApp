@@ -161,7 +161,7 @@ const MessageItemView = ({
           </View>
         </View>
         <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-          <View style={styles.messageTime}>
+          <View style={[styles.messageTime,id === userInfo?._id && {backgroundColor: '#b1b9bb',}]}>
             {id === userInfo?._id && (
               <View>
                 {unReadMessage !== 0 && unReadMessage > index ? (
@@ -382,7 +382,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
-    backgroundColor: '#b1b9bb',
     borderRadius: 20,
     paddingHorizontal: 5,
     paddingVertical: 2,

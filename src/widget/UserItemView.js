@@ -30,7 +30,7 @@ const UserItemView = ({
     >
       <RoundAvatar size={40} image_url={profileImage} />
       <View style={styles.mainRow}>
-        <View style={{ marginLeft: 5 }}>
+        <View style={{ marginLeft: 5, width:"80%" }}>
           <Text
             numberOfLines={1}
             style={[
@@ -82,7 +82,9 @@ const styles = StyleSheet.create({
     // marginTop: 12,
     paddingVertical:10,
     justifyContent:"flex-start",
-    alignItems:'center'
+    alignItems:'center',
+    // width:'90%'
+    
   },
   mainRow: {
     flexDirection: 'row',
@@ -93,7 +95,8 @@ const styles = StyleSheet.create({
     borderBottomColor:"gray",
     borderBottomWidth:0.5,
     marginHorizontal:10,
-    paddingVertical:10
+    paddingVertical:10,
+    // width:'70%'
   },
   unreadView: {
     height: 22,
@@ -112,6 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: fontFamily,
     color: colors.textGrey,
+    width:'80%'
   },
   typingText: {
     fontSize: 14,

@@ -7,7 +7,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: colors.background,
+    backgroundColor: '#e2e9f1',
   },
   appHeader: {
     height: 68,
@@ -41,7 +41,7 @@ export default StyleSheet.create({
     marginLeft: 8,
   },
   containtView: {
-    margin: 18,
+    margin: 10,
     marginBottom: 70,
   },
   inputStyle: {
@@ -52,17 +52,17 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     height: 46,
-    margin: 12,
+    // margin: 12,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 8,
     paddingRight: 8,
     justifyContent: 'space-between',
-    borderColor: colors.textGrey,
-    borderWidth: 0.5,
-    // width: '100%',
+    // borderColor: colors.textGrey,
+    // borderWidth: 0.5,
+    width: '100%',
     backgroundColor: colors.white,
-    borderRadius: 30,
+    // borderRadius: 30,
   },
   subRow: {
     flexDirection: 'row',
@@ -77,8 +77,8 @@ export default StyleSheet.create({
     color: colors.primary,
   },
   addView: {
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     backgroundColor: colors.devider,
     borderRadius: 22,
     justifyContent: 'center',
@@ -105,8 +105,8 @@ export default StyleSheet.create({
     fontFamily: fontFamily,
   },
   sendIcon: {
-    height: 28,
-    width: 28,
+    height: 20,
+    width: 20,
     tintColor: colors.primary,
   },
 });

@@ -132,39 +132,65 @@ const MessageItemView = ({
 
   const messageLayout = () => {
     return (
-      <View
-        style={[
-          styles.messageView,
-          {
-            backgroundColor:
-              id === userInfo?._id ? colors.primary : colors.white,
-          },
-        ]}
-      >
-        <Text
+      <View>
+        <View
           style={[
-            styles.messageText,
-            { color: id === userInfo?._id ? colors.white : 'black' },
+            styles.messageView,
+            {
+              backgroundColor: id === userInfo?._id ? '#d5f1ff' : colors.white,
+            },
           ]}
         >
-          {message}
-        </Text>
-        <View style={styles.messageTime}>
-          {id === userInfo?._id && (
-            <View>
-              {unReadMessage !== 0 && unReadMessage > index ? (
-                <Image
-                  style={[styles.checkIcon, { tintColor: colors.white }]}
-                  source={images.check}
-                />
-              ) : (
-                <Image
-                  style={[styles.checkIcon, { height: 14, width: 14 }]}
-                  source={images.doubleCheck}
-                />
-              )}
-            </View>
-          )}
+          <Text
+            style={[
+              styles.messageText,
+              { color: id === userInfo?._id ? 'black' : 'black' },
+            ]}
+          >
+            {message}
+          </Text>
+          <View>
+          <Text
+            style={[
+              styles.nameTextStyle,
+              id === userInfo?._id && { textAlign: 'right' },
+            ]}
+          >
+            {`${moment(time).format('HH:mm')}`}
+          </Text>
+          </View>
+        </View>
+        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+          <View style={styles.messageTime}>
+            {id === userInfo?._id && (
+              <View>
+                {unReadMessage !== 0 && unReadMessage > index ? (
+                  <Image
+                    style={[styles.checkIcon, { tintColor: colors.white }]}
+                    source={images.check}
+                  />
+                ) : (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Image
+                      style={[styles.checkIcon, { height: 10, width: 10 }]}
+                      source={images.doubleCheck}
+                    />
+                    <Text
+                      style={{ color: 'white', fontSize: 10, marginLeft: 2 }}
+                    >
+                      Đã nhận
+                    </Text>
+                  </View>
+                )}
+              </View>
+            )}
+          </View>
         </View>
       </View>
     );
@@ -214,14 +240,6 @@ const MessageItemView = ({
         )}
         <View style={{ marginLeft: 8 }} />
         <View style={{ maxWidth: '70%' }}>
-          <Text
-            style={[
-              styles.nameTextStyle,
-              id === userInfo?._id && { textAlign: 'right' },
-            ]}
-          >
-            {`${messageData?.user?.name}, ${moment(time).format('HH:mm')}`}
-          </Text>
           {getMessageLayout(type)}
         </View>
         <View style={{ marginLeft: 8 }} />
@@ -346,8 +364,10 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: 4,
     paddingBottom: 8,
-    borderRadius: 12,
+    borderRadius: 8,
     backgroundColor: colors.primary,
+    borderWidth: 0.5,
+    borderColor: '#b1bcc7',
   },
   messageText: {
     fontFamily: fontFamily,
@@ -356,19 +376,26 @@ const styles = StyleSheet.create({
     marginRight: 18,
   },
   messageTime: {
-    position: 'absolute',
-    bottom: 4,
-    right: 8,
+    // position: 'absolute',
+    // bottom: 4,
+    // left: 0,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    backgroundColor: '#b1b9bb',
+    borderRadius: 20,
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    marginTop: 4,
+    // width: '30%',
   },
   timeText: {
     fontSize: 10,
     color: colors.white,
   },
   checkIcon: {
-    height: 12,
-    width: 12,
+    height: 10,
+    width: 10,
     resizeMode: 'contain',
     marginLeft: 6,
   },
@@ -409,6 +436,6 @@ const styles = StyleSheet.create({
   nameTextStyle: {
     fontFamily: fontFamilySemiBold,
     fontSize: 10,
-    color: 'black',
+    color: 'gray',
   },
 });

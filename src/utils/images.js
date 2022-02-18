@@ -2,9 +2,9 @@
 export const images = {
   attachment: require('../../assets/images/attachment.png'),
   check: require('../../assets/images/check.png'),
-  doubleCheck: require('../../assets/images/doubleCheck.png'),
+  doubleCheck: require('../../assets/images/read.png'),
   image: require('../../assets/images/image.png'),
-  video: require('../../assets/images/video.png'),
+  video: require('../../assets/images/video-camera.png'),
   plus: require('../../assets/images/plus.png'),
   back: require('../../assets/images/back.png'),
   play: require('../../assets/images/play.png'),

@@ -622,8 +622,8 @@ const Chat = ({ route, navigation }) => {
                   isDateChange = true;
                 }
               }
-              console.log('item user id==', item?.user?._id);
-              console.log('get user id==', user?._id);
+              // console.log('item user id==', item?.user?._id);
+              // console.log('get user id==', user?._id);
               return (
                 <TouchableOpacity style={{ zIndex: 999999 }} onPress={() => {}}>
                   <MessageItemView
@@ -703,7 +703,7 @@ const Chat = ({ route, navigation }) => {
               handleTyping();
             }}
             style={styles.inputStyle}
-            placeholder="Type Message..."
+            placeholder="Tin nhắn"
           />
         </View>
 
